@@ -23,7 +23,7 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: installing deps
-      run: sudo apt install g++ cmake libgtest-dev libboost-all-dev qtbase5-dev libprotobuf-dev -y 
+      run: sudo apt install g++ cmake libgtest-dev libboost-all-dev qtbase5-dev libprotobuf-dev protobuf-compiler -y 
 
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
