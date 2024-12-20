@@ -1,0 +1,43 @@
+syntax="proto2";
+
+package emserver;
+
+import "emserver.proto";
+
+enum SensorsType {
+    stUnknown = 0;
+    stDryContact = 1;
+    stTemperature = 2;
+}
+
+message ConfigurationDryContact {
+    required bool state = 1 [ default = true ]; // срабатывание происходит при замыкании контактов
+}
+
+message SensorDryContactState {
+    required bool state = 1;
+}
+
+message ConfigurationTemperature {
+    required int32 level = 1 [ default = 0 ]; // уровень срабатывания датчика температуры
+}
+
+message SensorTemperatureState {
+    required int32 value = 1;
+}
+
+message SensorConfiguration {
+    required int32 id = 1;
+    required SensorsType type = 2;
+    required bytes specificConfiguration = 3;
+}
+
+message SensorsControl {
+    repeated SensorConfiguration config = 1;
+}
+
+message SensorActivated {
+    required int32 sensorId = 1;
+    required SensorsType type = 2;
+    optional bytes sensorValue = 3;
+}

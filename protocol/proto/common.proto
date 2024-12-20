@@ -1,0 +1,13 @@
+syntax="proto2";
+
+package common_base;
+
+message CommonMessage {
+	required uint32 code = 1; /* код режима */
+	optional bytes payload = 2;
+}
+
+message TransportContainer {
+	required int32 contaiterVersion = 1 [ default = 1]; /* версия контейнера */
+	optional bytes payload = 2;
+}

@@ -1,0 +1,14 @@
+syntax="proto2";
+
+package emserver;
+
+import "emserver.proto";
+import "sensors.proto";
+
+message Capabilities {
+    repeated SensorConfiguration systemConfiguration = 1;
+}
+
+message RequestCapabilities {
+    optional int32 dummy = 1 [ default = 0 ];
+}

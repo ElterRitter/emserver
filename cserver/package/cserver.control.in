@@ -1,0 +1,9 @@
+Package: @PACKAGE_NAME@
+Version: @PACKAGE_VERSION@
+Section: libs
+Priority: optional
+Depends: libc6, libboost-thread1.67.0(>=1.67.0), libboost-system1.67.0(>=1.67.0), libboost-regex1.67.0(>=1.67.0)
+Architecture: amd64
+Essential: no
+Maintainer: atichonov@stc-spb.ru
+Description: CServer

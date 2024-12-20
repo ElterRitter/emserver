@@ -1,0 +1,37 @@
+syntax="proto2";
+
+package emserver;
+
+message DateInterval {
+    required double start = 1 [ default = 0.0];
+    required double end = 2 [ default = 0.0 ]; 
+}
+
+/*
+enum GeoDataType {
+    GeoDataPosition = 1;
+}
+
+message RawGeoPosition {
+    required double latitude = 1;
+    required double longitude = 2;
+    optional int32 altitude = 3 [ default = 0 ];
+}
+
+message GeoData {
+    required GeoDataType type = 1;
+    optional RawGeoPosition position = 2;
+}
+*/
+
+message ServerRuntimeNotification {
+    required uint32 methodId = 1;                     /* идентификатор метода. Если 0, то это runtime ошибка метода */
+    required int32 code = 2;                          /* код ошибки */
+    optional string description = 3 [ default = "" ]; /* описание ошибки, если есть */
+}
+
+message ServerCommonMessage {
+    required uint32 type = 1;                  /* тип сообщения в нагрузке */
+    required bytes payload = 2;                /* собственно proto-сообщение, сериализованное в строку */
+    optional int64 id = 3 [ default = -1 ];    /* идентификатор метода, иницируется клиентом, повторяется сервером, может отсутствовать */
+}

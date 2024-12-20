@@ -1,0 +1,16 @@
+<package>
+  <metadata>
+    <id>CServer</id>
+    <version>@CSERVER_VERSION@</version>
+    <title>CServer</title>
+    <authors>STC</authors>
+    <owners>STC</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Library server</description>
+  </metadata>
+  <files>
+    <file src="cserver.targets" target="build" />
+    <file src="..\CServer.dll" target="native\x64" />
+    <file src="@CSERVER_BOOST_DEP_DLL@" target="native\x64" />
+  </files>
+</package>
